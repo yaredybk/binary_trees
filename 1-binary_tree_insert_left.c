@@ -12,18 +12,12 @@
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
 	binary_tree_t *left;
-	binary_tree_t *tmp;
 
 	left =  binary_tree_node(parent, value);
-	if (parent->left)
-	{
-		tmp = parent->left;
-		parent->left = left;
-		left->left = tmp;
-	}
-	else
-	{
-		parent->left = left;
-	}
+	if (left == NULL)
+		return (NULL);
+	if (parent->left != NULL)
+		left->left = parent->left;
+	parent->left = left;
 	return (left);
 }
