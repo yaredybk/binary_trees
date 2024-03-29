@@ -9,7 +9,7 @@ void tree_count(const binary_tree_t *tree, size_t *max)
 {
 	if (tree != NULL && max != NULL)
 	{
-		if (tree->next != NULL || tree->right != NULL)
+		if (tree->left != NULL || tree->right != NULL)
 			*max = *max + 1;
 		tree_count(tree->left, max);
 		tree_count(tree->right, max);
