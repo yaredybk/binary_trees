@@ -3,7 +3,7 @@
 /**
  * tree_count - goes through a binary tre
  * @tree: a pointer to the tree node
- * @max: is a pointer to a depth of the tree.
+ * @max: is a pointer to a counter
  */
 void tree_count(const binary_tree_t *tree, size_t *max)
 {
@@ -17,11 +17,11 @@ void tree_count(const binary_tree_t *tree, size_t *max)
 }
 
 /**
- * binary_tree_size -  measures the depth of a binary tree
+ * binary_tree_leaves -  measures the leaves of a binary tree
  * @tree: a pointer to the tree node
- * Return: depth of tree, if tree is NULL 0
+ * Return: leaves of tree, if tree is NULL 0
  */
-size_t binary_tree_size(const binary_tree_t *tree)
+size_t binary_tree_leaves(const binary_tree_t *tree)
 {
 	size_t h;
 
