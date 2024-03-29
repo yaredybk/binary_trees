@@ -17,11 +17,11 @@ void tree_count(const binary_tree_t *tree, size_t *max)
 }
 
 /**
- * binary_tree_size -  measures the nodes with at least 1 child of a binary tree
+ * binary_tree_node -  measures the nodes with at least 1 child of a binary tree
  * @tree: a pointer to the tree node
  * Return: nodes with at least 1 child of tree, if tree is NULL 0
  */
-size_t binary_tree_size(const binary_tree_t *tree)
+size_t binary_tree_node(const binary_tree_t *tree)
 {
 	size_t h;
 
