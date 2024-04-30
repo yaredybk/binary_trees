@@ -10,20 +10,20 @@
  */
 int is_perfect_tmp(const binary_tree_t *tree, int *max, int counter)
 {
-    if (tree == NULL)
-        return (0);
-    if (tree->left == NULL && tree->right ==NULL)
-    {
-        if (*max != -1 && *max != counter)
-            return (0);
-        *max = counter;
-        return (1);
-    }
-    if (tree->left == NULL || tree->right == NULL)
-        return (0);
-    counter++;
-    return (is_perfect_tmp(tree->left, max, counter) &&
-		    is_perfect_tmp(tree->right, max, counter));
+	if (tree == NULL)
+		return (0);
+	if (tree->left == NULL && tree->right == NULL)
+	{
+		if (*max != -1 && *max != counter)
+			return (0);
+		*max = counter;
+		return (1);
+	}
+	if (tree->left == NULL || tree->right == NULL)
+		return (0);
+	counter++;
+	return (is_perfect_tmp(tree->left, max, counter) &&
+			is_perfect_tmp(tree->right, max, counter));
 }
 
 /**
@@ -32,12 +32,13 @@ int is_perfect_tmp(const binary_tree_t *tree, int *max, int counter)
  *
  * Return: 1 if perfect else 0
  */
-int binary_tree_is_perfect(const binary_tree_t *tree){
-    int max;
+int binary_tree_is_perfect(const binary_tree_t *tree)
+{
+	int max;
 
-    max = -1;
+	max = -1;
 
-    if (tree == NULL)
-	    return (0);
-    return (is_perfect_tmp(tree, &max, 0));
+	if (tree == NULL)
+		return (0);
+	return (is_perfect_tmp(tree, &max, 0));
 }
