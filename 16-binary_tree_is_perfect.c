@@ -14,14 +14,16 @@ int is_perfect_tmp(const binary_tree_t *tree, int *max, int counter)
         return (0);
     if (tree->left == NULL && tree->right ==NULL)
     {
-        if (*max != -1 && 8max != counter)
+        if (*max != -1 && *max != counter)
             return (0);
         *max = counter;
         return (1);
     }
     if (tree->left == NULL || tree->right == NULL)
         return (0);
-    return (is_perfect_tmp(tree->left) && is_perfect_tmp(tree->right));
+    counter++;
+    return (is_perfect_tmp(tree->left, max, counter) &&
+		    is_perfect_tmp(tree->right, max, counter));
 }
 
 /**
@@ -37,5 +39,5 @@ int binary_tree_is_perfect(const binary_tree_t *tree){
 
     if (tree == NULL)
 	    return (0);
-    return (is_perfect_tmp(tree, &max, 0);
+    return (is_perfect_tmp(tree, &max, 0));
 }
