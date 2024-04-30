@@ -23,3 +23,19 @@ int is_perfect_tmp(const binary_tree_t *tree, int *max, int counter)
         return (0);
     return (is_perfect_tmp(tree->left) && is_perfect_tmp(tree->right));
 }
+
+/**
+ * binary_tree_is_perfect - checks if a binary tree is perfect
+ * @tree: A pointer to the root node of the tree to check.
+ *
+ * Return: 1 if perfect else 0
+ */
+int binary_tree_is_perfect(const binary_tree_t *tree){
+    int max;
+
+    max = -1;
+
+    if (tree == NULL)
+	    return (0);
+    return (is_perfect_tmp(tree, &max, 0);
+}
