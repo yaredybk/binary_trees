@@ -1,27 +1,4 @@
-#include"binary_trees.h"
-
-/**
- * tmp_ance - goes through a binary tree using pre-order traversal
- * to get an ancestor
- * @first: a pointer to the first node
- * @second: a pointer to the second node
- *
- * Return: NULL or an ancestor node if found
- */
-binary_tree_t *tmp_ance(const binary_tree_t *first,
-		const binary_tree_t *second)
-{
-	binary_tree_t a;
-
-	a = second;
-	while (a != NULL && a != first)
-		a = a->parent;
-	if (a == first)
-		return (first);
-	if (first->parent != NULL)
-		return (NULL);
-	return (tmp_ance(first->parent, second));
-}
+#include "binary_trees.h"
 
 /**
  * binary_trees_ancestor - Finds the lowest common ancestor of two nodes.
@@ -33,8 +10,17 @@ binary_tree_t *tmp_ance(const binary_tree_t *first,
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		const binary_tree_t *second)
 {
-	if (first == NULL || second == NULL)
+	binary_tree_t *mom, *pop;
+
+	if (!first || !second)
 		return (NULL);
-	return (tmp_ance(rconst binary_tree_t *first,
-				const binary_tree_t *second));
+	if (first == second)
+		return ((binary_tree_t *)first);
+
+	mom = first->parent, pop = second->parent;
+	if (first == pop || !mom || (!mom->parent && pop))
+		return (binary_trees_ancestor(first, pop));
+	else if (mom == second || !pop || (!pop->parent && mom))
+		return (binary_trees_ancestor(mom, second));
+	return (binary_trees_ancestor(mom, pop));
 }
